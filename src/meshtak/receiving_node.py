@@ -2,8 +2,8 @@ from serial.tools import list_ports
 import serial, time, threading
 import meshtastic.serial_interface
 from pubsub import pub
-from translator import translate_position_to_cot
-from repository import add_track_to_queue
+from meshtak.translator import translate_position_to_cot
+from meshtak.repository import add_track_to_queue
 
 def try_connect(port, result):
     try:

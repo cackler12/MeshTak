@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 import pytak
 import numpy as np
-import repository
+import meshtak.repository as repository
 from datetime import datetime, timezone, timedelta
 
 def translate_position_to_cot(lattitude, longitude, altitude, fromId, track_time):

@@ -1,0 +1,25 @@
+[project]
+name = "meshtak"
+version = "0.1.0"
+description = "A lightweight microservice that converts Meshtastic protobuf messages to TAK CoT XML"
+readme = "README.md"
+authors = [
+    { name = "CJ Ackler", email = "cjackler12@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pytak",
+    "asyncio",
+    "pyyaml",
+    "meshtastic",
+    "pyserial",
+    "pubsub",
+    "numpy"
+]
+
+[project.scripts]
+meshtak = "meshtak:main"
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"

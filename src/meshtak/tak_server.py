@@ -1,5 +1,5 @@
 from configparser import ConfigParser
-import repository
+import meshtak.repository as repository
 import asyncio, pytak
 
 async def connect_to_tak_server():

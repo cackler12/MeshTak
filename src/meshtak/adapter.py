@@ -1,7 +1,7 @@
 import asyncio, threading
-import tak_server, receiving_node
+import meshtak.tak_server as tak_server, meshtak.receiving_node as receiving_node
 
-def main():
+def start_adapter():
     tak_thread = threading.Thread(target=start_tak_server, daemon=True)
     tak_thread.start()
     receiving_thread = threading.Thread(target=start_receiver_node, daemon=True)
@@ -23,6 +23,3 @@ def start_tak_server():
 
 def start_receiver_node():
     receiving_node.start()
-
-if __name__ == "__main__":
-    main()
