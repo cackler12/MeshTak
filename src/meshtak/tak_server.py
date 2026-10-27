@@ -8,9 +8,9 @@ async def connect_to_tak_server():
     
     config["tak"] = {
         "COT_URL": "tls://takserver:8089",
-        "PYTAK_TLS_CLIENT_CERT": "/home/cj/otus/MeshTak/certs/meshTak.pem",
-        "PYTAK_TLS_CLIENT_KEY": "/home/cj/otus/MeshTak/certs/meshTak.key",
-        "PYTAK_TLS_CLIENT_CAFILE": "/home/cj/otus/MeshTak/certs/root-ca.pem",
+        "PYTAK_TLS_CLIENT_CERT": "/app/certs/meshTak.pem",
+        "PYTAK_TLS_CLIENT_KEY": "/app/certs/meshTak.key",
+        "PYTAK_TLS_CLIENT_CAFILE": "/app/certs/root-ca.pem",
         "PYTAK_TLS_CLIENT_PASSWORD": "atakatak",
         "DEBUG": "1"
     }

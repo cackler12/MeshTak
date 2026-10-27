@@ -1,0 +1,9 @@
+services:
+  meshtak:
+    image: meshtak:latest
+    container_name: meshtak
+    restart: always
+    privileged: true
+    volumes:
+      - /dev:/dev
+    network_mode: host
