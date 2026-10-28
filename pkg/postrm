@@ -1,0 +1,9 @@
+#!/bin/bash
+
+package_name="meshtak"
+
+sudo systemctl stop meshtak.service
+
+rm -rf /etc/systemd/system/meshtak.service
+
+docker rmi $package_name:latest

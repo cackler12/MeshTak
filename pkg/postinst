@@ -1,0 +1,14 @@
+#!/bin/bash
+
+package_name="meshtak"
+version="0.1.0"
+
+docker load -i /usr/bin/meshtak/dist/$package_name-$version.tar
+
+cp /usr/bin/meshtak/meshtak.service /etc/systemd/system/meshtak.service
+
+sudo systemctl daemon-reload
+
+sudo systemctl enable meshtak.service
+
+sudo systemctl start meshtak.service
