@@ -43,7 +43,7 @@ def find_receiver_node():
 
         except Exception:
             pass
-    return
+    return None
 
 def on_receive(packet, interface):
     try:
@@ -74,7 +74,9 @@ def start():
         try:
             interface = find_receiver_node()
             if interface == None:
-                pass
+                print("Failed to find Meshtastic serial conn, retrying in 5 seconds...")
+                time.sleep(5)
+                continue
 
             pub.subscribe(on_receive, "meshtastic.receive")
 
