@@ -1,6 +1,6 @@
 services:
   meshtak:
-    image: meshtak:latest
+    image: meshtak:arm64
     container_name: meshtak
     restart: always
     privileged: true

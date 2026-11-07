@@ -9,4 +9,4 @@ fi
 
 rm -rf /etc/systemd/system/meshtak.service
 
-docker rmi $package_name:latest
+docker rmi $package_name:arm64

@@ -1,6 +1,6 @@
 Package: meshtak
 Version: 0.1.0
-Architecture: amd64
+Architecture: arm64
 Maintainer: CJ Ackler cjackler12@gmail.com
 Depends: bash (>= 4.0), curl
 Section: utils
