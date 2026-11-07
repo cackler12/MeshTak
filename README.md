@@ -5,7 +5,7 @@ A lightweight microservice that converts Meshtastic protobuf messages to TAK CoT
 ## Description
 
 Meshtastic currently allows users to configure a device to publish data to ATAK. However, I wanted to make a project that specifically translated position messages
-sent from a tracker node to Tak CoT and published these messages to a Tak Server with minimal latency. If you use the Meshtastic ATAK plugin, you can only send message updates to ATAK every 30 seconds. With MeshTak, messages are translated to CoT and sent to the Tak Server as fast as they arrive! MeshTak is a peice of my rela-time tracking solution with Meshtastic and ATAK. I have also modified the Meshtastic firmware to send position updates at an increased rate in my firmware-otus repo here: https://github.com/cackler12/firmware-otus. 
+sent from a tracker node to Tak CoT and published these messages to a Tak Server with minimal latency. If you use the Meshtastic ATAK plugin, you can only send message updates to ATAK every 30 seconds. With MeshTak, messages are translated to CoT and sent to the Tak Server as fast as they arrive! MeshTak is a piece of my real-time tracking solution with Meshtastic and ATAK. I have also modified the Meshtastic firmware to send position updates at an increased rate in my firmware-otus repo here: https://github.com/cackler12/firmware-otus. 
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ git clone https://github.com/cackler12/MeshTak.git
 ### Dependencies
 
 * Python 3.12 (!> 3.12 as meshtastic module is incompatible)
-* 64-bit Debian based system (amd64 or arch64)
+* 64-bit Debian based system (amd64 or arm64)
 * Docker
 
 ### Building deb package
