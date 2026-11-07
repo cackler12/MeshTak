@@ -10,5 +10,3 @@ cp /usr/bin/meshtak/meshtak.service /etc/systemd/system/meshtak.service
 sudo systemctl daemon-reload
 
 sudo systemctl enable meshtak.service
-
-sudo systemctl start meshtak.service

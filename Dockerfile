@@ -19,7 +19,6 @@ RUN uv sync --frozen --no-install-project
 
 # Copy application source
 COPY src/ ./src/
-COPY certs/ ./certs
 COPY README.md README.md
 
 # Install the project itself

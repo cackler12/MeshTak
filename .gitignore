@@ -34,3 +34,5 @@ go.work.sum
 certs/*
 __pycache__
 .venv
+
+build

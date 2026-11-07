@@ -11,8 +11,9 @@ dependencies = [
     "pytak",
     "asyncio",
     "pyyaml",
+    "pytak[with-crypto]",
+    "pytak[with-aiohttp]",
     "meshtastic",
-    "pyserial",
     "pubsub",
     "numpy"
 ]

@@ -1,25 +1,25 @@
 import xml.etree.ElementTree as ET
-import pytak
-import numpy as np
-import meshtak.repository as repository
+from pytak import W3C_XML_DATETIME
+from meshtak.repository import meshtastic_id_to_uid
+from uuid import uuid4
 from datetime import datetime, timezone, timedelta
 
-def translate_position_to_cot(lattitude, longitude, altitude, fromId, track_time):
-    if fromId not in repository.meshtastic_id_to_uid:
-        repository.meshtastic_id_to_uid[fromId] = fromId[-4:]
-    now = datetime.fromtimestamp(track_time, timezone.utc)
-    stale_time = now + timedelta(seconds=int(60))
+def translate_meshtastic_position_to_tak_track(from_id, short_name, latitude, longitude, alt_msl, timestamp):
+    if from_id not in meshtastic_id_to_uid:
+        meshtastic_id_to_uid[from_id] = str(uuid4())
+    track_time = datetime.fromtimestamp(timestamp, timezone.utc)
+    stale_time = track_time + timedelta(seconds=int(60))
 
     event = ET.Element(
         "event",
         {
             "version": "2.0",
-            "uid": repository.meshtastic_id_to_uid.get(fromId),
+            "uid": meshtastic_id_to_uid.get(from_id),
             "type": "a-f-A",
             "how": "m-g",
-            "time": now.strftime(pytak.W3C_XML_DATETIME),
-            "start": now.strftime(pytak.W3C_XML_DATETIME),
-            "stale": stale_time.strftime(pytak.W3C_XML_DATETIME),
+            "time": track_time.strftime(W3C_XML_DATETIME),
+            "start": track_time.strftime(W3C_XML_DATETIME),
+            "stale": stale_time.strftime(W3C_XML_DATETIME),
         },
     )
 
@@ -27,9 +27,10 @@ def translate_position_to_cot(lattitude, longitude, altitude, fromId, track_time
         event,
         "point",
         {
-            "lat": str(lattitude),
+            "lat": str(latitude),
             "lon": str(longitude),
-            "hae": str(altitude),
+            # convert msl to hae
+            "hae": str(alt_msl),
             "ce": "10",
             "le": "10",
         },
@@ -40,7 +41,7 @@ def translate_position_to_cot(lattitude, longitude, altitude, fromId, track_time
     ET.SubElement(
         detail,
         "contact",
-        {"callsign": repository.meshtastic_id_to_uid.get(fromId)},
+        {"callsign": short_name},
     )
 
     return ET.tostring(event, encoding="utf-8")

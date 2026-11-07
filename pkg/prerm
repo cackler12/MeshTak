@@ -1,0 +1,12 @@
+#!/bin/bash
+
+package_name="meshtak"
+
+if systemctl is-active --quiet "meshtak.service"; then
+    echo "meshtak is currently running, stopping service for removal..."
+    sudo systemctl stop meshtak.service
+fi
+
+rm -rf /etc/systemd/system/meshtak.service
+
+docker rmi $package_name:latest

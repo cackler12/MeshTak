@@ -6,4 +6,5 @@ services:
     privileged: true
     volumes:
       - /dev:/dev
+      - /usr/bin/meshtak/certs:/app/certs
     network_mode: host
